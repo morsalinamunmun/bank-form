@@ -1,0 +1,53 @@
+<!-- প্রাকটিস প্রব্লেম 
+
+একটা ওয়েবসাইট এ একটা input ফিল্ড থাকবে। তার সাথে একটা বাটন থাকবে double নামে। তুমি ইনপুট ফিল্ড এ যদি কোন সংখ্যা লিখো তাহলে নিচে সেই সংখ্যা ডাবল করে দেখাবে। আরেকটা বাটন থাকবে triple নামে। সেটাতে ক্লিক করলে ইনপুট ফিল্ড এ যে সংখ্যা আছে সেটা তিনগুণ হয়ে যাবে। সেই সংখ্যা নিচে দেখাবে। আর যদি ইনপুট ফিল্ড এ সংখ্যা ছাড়া কোন কথা লিখে তাহলে একটা এলার্ট (alert) দিয়ে বলবে Please enter a number। এলার্ট ক্যামনে দেয় সেটা নিয়ে বিস্তারিত অনেকদিন পরে আমরা ই দেখায় দিবো। আপাতত দেখো গুগলে সার্চ দিয়ে কিছু বের করতে পারো কিনা। -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- tailwind css link -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <section class="mx-auto bg-lime-200">
+    <input class="block mb-3 mt-4 mx-auto" type="text" id="input-field" placeholder="Enter a Number">
+    <button class="bg-purple-400 px-3 py-2 rounded" id="double-click">Double</button>
+    <button class="bg-teal-600 px-3 py-2 rounded" id="triple-click">Triple</button>
+    <h3>Ans: <span id="result">0</span></h3>
+    </section>
+
+    <script>
+        document.getElementById('double-click').addEventListener('click', function(){
+            const inputField = document.getElementById('input-field');
+            const inputElement = parseFloat(inputField.value);
+            inputField.value = '';
+    
+    if(isNaN(inputElement)){
+        alert('Please Provide a valid Number');
+        return;
+    }
+            let doubleValue = 2 * inputElement;
+            const ans = document.getElementById('result');
+            const ansElement = parseFloat(ans.innerText);
+            ans.innerText = doubleValue;
+        })
+
+        document.getElementById('triple-click').addEventListener('click', function(){
+            const inputField = document.getElementById('input-field');
+            const inputElement = parseFloat(inputField.value);
+            inputField.value = '';
+            if(isNaN(inputElement)){
+                alert('Please Provide a valid Number');
+                return;
+            }
+            let tripleValue = 3 * inputElement;
+            const ans = document.getElementById('result');
+            const ansElement = parseFloat(ans.innerText);
+            ans.innerText = tripleValue;
+        })
+    </script>
+</body>
+</html>
